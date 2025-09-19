@@ -16,7 +16,7 @@ app.get('/about', (req, res) => {
 })
 
 app.use(express.json());
-app.use(router);
+app.use('/api/users', router);
 
 
 

@@ -1,4 +1,4 @@
-import { findAllUsers, findUserById, createNewUser, isUserDataValid, getUserIndex, getRandomId } from "../utils.js";
+import { findAllUsers, findUserById, isUserDataValid, getUserIndex, getRandomId, deleteCurrentUser } from "../utils.js";
 import { users } from "../db.js";
 
 export const getAllUsers = (req, res) => {
@@ -37,11 +37,25 @@ export const updateUser = (req, res) => {
     }
 
     const { name, age } = req.body || {};
+
+    if (!isUserDataValid(name, age)) {
+        return res.status(400).json({ error: true, errorText: 'Missing or invalid required fields' });
+    }
+
     const updatedUserData = { name, age, id };
     users[userIndex] = updatedUserData;
 
-    !isUserDataValid(name, age) ?
-        res.status(400).json({ error: true, errorText: 'Missing or invalid required fields' }) :
-        res.status(200).json(updatedUserData);
+    return res.status(200).json(updatedUserData);
+}
 
+export const deleteUser = (req, res) => {
+    const userId = req.params.id;
+    const userIndex = users.findIndex(user => user.id === userId);
+
+    if (!users[userIndex]) {
+        return res.status(404).json({ error: true, errorText: 'User not found' });
+    }
+
+    deleteCurrentUser(userIndex);
+    return res.status(204).send();
 }
