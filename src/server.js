@@ -1,15 +1,22 @@
 import express from 'express';
+import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 4002;
 
+const __dirname = path.resolve();
+
 app.get('/', (req, res) => {
-    res.send('Hello EXPRESS!!!');
+    res.sendFile(path.resolve(__dirname, 'src', 'static', 'main.html'));
+})
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'src', 'static', 'about.html'));
 })
 
 
 
 
 app.listen(PORT, () => {
-    console.log(`Server has been started on port: http://localhost:${PORT}/`);
+    console.log(`Server has been started on: http://localhost:${PORT}/`);
 })
