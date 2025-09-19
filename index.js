@@ -15,6 +15,7 @@ app.get('/about', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'src', 'static', 'about.html'));
 })
 
+app.use(express.json());
 app.use(router);
 
 
