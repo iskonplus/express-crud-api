@@ -1,7 +1,7 @@
 import { findAllUsers, findUserById, isUserDataValid, getUserIndex, getRandomId, deleteCurrentUser } from "../utils.js";
 import { users } from "../db.js";
 
-export const getAllUsers = (req, res) => {
+export const getAllUsers = (_, res) => {
     res.json(findAllUsers());
 }
 
