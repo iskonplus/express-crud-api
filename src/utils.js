@@ -9,7 +9,7 @@ export const createNewUser = (user) => {
     users.push(user);
     return user;
 }
-
+export const getUserIndex = userId => users.findIndex(user => user.id === userId);
 
 export const isUserDataValid = (name, age) => {
     return typeof name === 'string' || typeof age === 'number';
