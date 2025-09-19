@@ -18,9 +18,14 @@ export const getUserById = (req, res) => {
 export const createUser = (req, res) => {
     const { name, age } = req.body || {};
 
-    !isUserDataValid(name, age) ?
-        res.status(400).json({ error: true, errorText: 'Missing or invalid required fields' }) :
-        res.status(201).json(createNewUser({ name, age, id: getRandomId() }));
+    if (!isUserDataValid(name, age)) {
+        return res.status(400).json({ error: true, errorText: 'Missing or invalid required fields' });
+    }
+
+    const newUser = { name, age, id: getRandomId() };
+    users.push(newUser);
+
+    return res.status(201).json(newUser);
 }
 
 export const updateUser = (req, res) => {

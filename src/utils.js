@@ -5,10 +5,6 @@ export const getRandomId = () => randomUUID();
 
 export const findAllUsers = () => users;
 export const findUserById = (id) => users.find(user => user.id === id);
-export const createNewUser = (user) => {
-    users.push(user);
-    return user;
-}
 export const getUserIndex = userId => users.findIndex(user => user.id === userId);
 
 export const isUserDataValid = (name, age) => {
