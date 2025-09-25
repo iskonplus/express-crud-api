@@ -5,6 +5,7 @@ import router from './src/routers/server.js';
 import { notFound } from "./src/middlewares/notFound.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 import { logger } from "./src/middlewares/logger.js";
+import {timer} from './src/middlewares/timer.js'
 
 const app = express();
 const PORT = process.env.PORT || 4002;
@@ -17,7 +18,9 @@ app.get('/', (_, res) => {
 app.get('/about', (_, res) => {
     res.sendFile(path.resolve(__dirname, 'src', 'static', 'about.html'));
 })
+
 app.use(logger);
+app.use(timer);
 
 app.use(express.json());
 app.use('/api/users', router);
