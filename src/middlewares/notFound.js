@@ -1,3 +1,5 @@
+import {errorResponse} from '../controllers/response.js'
+
 export const notFound = (_req, res, _next) => {
-    res.status(404).json({ error: true, errorText: 'Page not found' })
+   return  res.status(404).json(errorResponse('Page not found'));
 }
