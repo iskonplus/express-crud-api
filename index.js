@@ -27,7 +27,7 @@ app.use(timer);
 
 app.use(express.json());
 app.use('/api/users', usersRouter);
-app.use('/login', authRouter);
+app.use('/api/login', authRouter);
 
 app.use(notFound);
 app.use(errorHandler);

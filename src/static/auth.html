@@ -8,17 +8,17 @@
 <body>
     <div class="container">
         <h1>Authorization Page</h1>
-        <ul>
-            <li><a href="/">Main</a></li>
-            <li><a href="/authorization">Login</a></li>
+        <ul style="display: flex;">
+            <li style="display:block; margin-right: 15px;"><a href="/">Main</a></li>
+            <li style="display:block;"><a href="/authorization">Login</a></li>
         </ul>
     </div>
     <div class="container">
         <h1>Login</h1>
-        <form action="login" id="login-form">
-            <input type="text" name="name" id="nickName" placeholder="Name">
-            <input type="password" name="password" id="password" placeholder="Password">
-            <input type="submit" value="login">
+        <form action="login" id="login-form" style="display: flex; width:300px; margin: auto; flex-wrap: wrap;">
+            <input type="text" name="name" id="nickName" placeholder="Name" style="display: block; width: 100%; margin-bottom: 20px;">
+            <input type="password" name="password" id="password" placeholder="Password" style="display: block; width: 100%; margin-bottom: 20px;">
+            <input type="submit" value="login" style="display:block; margin-left: auto; cursor: pointer;">
         </form>
     </div>
 </body>

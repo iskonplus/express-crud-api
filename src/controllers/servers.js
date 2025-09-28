@@ -69,7 +69,7 @@ export const logIn = (req, res) => {
 
     const authUser = users.find(user => user.name === nickName && user.password === password);
 
-    if (!authUser) return res.status(400).json(errorResponse('Invalid credentials'));
+    if (!authUser) return res.status(404).json(errorResponse('User does not exist'));
 
     const okResponse = {
         success: true,
