@@ -60,3 +60,24 @@ export const deleteUser = (req, res) => {
     deleteCurrentUser(userIndex);
     return res.status(204).send();
 }
+
+
+export const logIn = (req, res) => {
+    const { nickName, password } = req.body || {};
+    console.log({ nickName, password });
+
+    if (!nickName || !password) return res.status(400).json(errorResponse('Name and password are required'));
+
+    const authUser = users.find(user => user.name === nickName && user.password === password);
+
+    if (!authUser) return res.status(400).json(errorResponse('Invalid credentials'));
+
+    const okResponse = {
+        success: true,
+        token: `fake-token-${authUser.id}`,
+        user: { id: authUser.id, name: authUser.name }
+    }
+
+    return res.json(okResponse);
+
+}
