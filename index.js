@@ -12,12 +12,14 @@ const app = express();
 const PORT = process.env.PORT || 4002;
 const __dirname = path.resolve();
 
+app.use('/static', express.static(path.resolve(__dirname, 'src', 'static')));
+
 app.get('/', (_, res) => {
     res.sendFile(path.resolve(__dirname, 'src', 'static', 'main.html'));
 })
 
-app.get('/about', (_, res) => {
-    res.sendFile(path.resolve(__dirname, 'src', 'static', 'about.html'));
+app.get('/authorization', (_, res) => {
+    res.sendFile(path.resolve(__dirname, 'src', 'static', 'auth.html'));
 })
 
 app.use(logger);

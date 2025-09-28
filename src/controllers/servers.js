@@ -64,7 +64,6 @@ export const deleteUser = (req, res) => {
 
 export const logIn = (req, res) => {
     const { nickName, password } = req.body || {};
-    console.log({ nickName, password });
 
     if (!nickName || !password) return res.status(400).json(errorResponse('Name and password are required'));
 

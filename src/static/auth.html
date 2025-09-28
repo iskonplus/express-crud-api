@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Authorization Page</h1>
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a href="/authorization">Login</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="login" id="login-form">
+            <input type="text" name="name" id="nickName" placeholder="Name">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="submit" value="login">
+        </form>
+    </div>
+</body>
+
+<script src="/static/auth.js"></script>
+</html>
